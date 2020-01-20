@@ -1,5 +1,10 @@
 $(document).ready(function() {
 
+    var timer = 30;
+
+
+
+
     var questions = [
         {
             ask: "what is 2+2?",
@@ -32,5 +37,26 @@ $(document).ready(function() {
         $("#question").append(questions.ask);
         $(".answer").append(questions.answer);
         $(".answer").show();
+        choiceGenerator();
     });
+    
+    function choiceGenerator() {
+        var selectedQuestion = questions[Math.floor(Math.random() * questions.length)];
+        var choicesArray = []
+
+        for (let i = 0; i < selectedQuestion.choices.length; i++) {
+            var choices = selectedQuestion.choices;
+            var choice = '<button>' + choices[i].toString() + '</button>'
+            choicesArray.push(choice)
+        }
+        $('#questionWrapper').append(selectedQuestion.ask);
+        $('#choicesWrapper').append(choicesArray);
+    }
+
+    function startTimer() {
+    
+    };
+
+    $("#start").on('click', setInterval(startTimer, 1000);
+
 });
