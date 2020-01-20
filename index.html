@@ -5,27 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="assets/javascript/app.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="assets/javascript/app.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         type="text/css">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
-    <title>Trivia Game</title>
+    <title>Trivia</title>
 </head>
 
 <body>
     <div class="container">
         <div class="card mt-5">
             <div class="card-body">
-                <h1 class="card-title text-center">TRIVIA GAME</h1>
-                <p class="card-text text-center">Time remaining: 0 Seconds</p>
-                <p class="card-text text-center">Question will go here</p>
-                <div class="list-group">
-                    <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
-                    <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
-                    <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
-                    <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
+                <h1 class="card-title text-center">TRIVIA</h1>
+                <p class="card-text text-center" id="timer">Time remaining: 0 Seconds</p>
+                <p class="card-text text-center" id="question"></p>
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary" id="start">Start</button>
+                    <button type="button" class="btn btn-primary" id="reset">Start Over</button>
+                    <button class="answer1"></button>
+                    <button class="answer2"></button>
                 </div>
             </div>
         </div>
