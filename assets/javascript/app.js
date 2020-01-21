@@ -50,10 +50,17 @@ $(document).ready(function () {
         $('#choicesWrapper').append(choicesArray);
         questions.splice(questions.indexOf(selectedQuestion), 1);
         console.log(questions);
-
+        $("#choicesWrapper").show();
         startTimer();
 
     }
+
+    function showDelay() {
+        var delay = setInterval(function () {
+            choiceGenerator();
+            clearInterval(delay);
+        }, 2000)
+    };
 
     function startTimer() {
 
@@ -62,17 +69,15 @@ $(document).ready(function () {
             console.log(e.target.innerText, 'button')
             clearInterval(mainTimer);
             console.log(e.target.innerText, selectedQuestion.answer);
-            if (selectedQuestion.answer == e.target.innerText) {
-                
-            } else {
-                // $("#questionWrapper").text("You were wrong! The correct answer was " + selectedQuestion.answer);
-                // $("#choicesWrapper").hide();
-                // $("#timer").hide();
-                // var delay = setInterval(function () {
+            $("#choicesWrapper").hide();
+            $("#timer").hide();
 
-                //     clearInterval(delay);
-                // }, 2000)
-                choiceGenerator();
+            if (selectedQuestion.answer == e.target.innerText) {
+                $("#questionWrapper").text("You were correct! " + selectedQuestion.answer + " was the answer.")
+                showDelay();
+            } else {
+                $("#questionWrapper").text("You were wrong! The correct answer was " + selectedQuestion.answer);
+                showDelay();                
             }
         })
 
