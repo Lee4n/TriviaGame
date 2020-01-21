@@ -26,14 +26,13 @@ $(document).ready(function () {
 
     $("#reset").hide();
     $(".answer").hide();
+    $("#timer").hide();
 
     // start the game
     $("#start").on("click", function () {
         $("#start").hide();
-        $("#question").append(questions.ask);
-        $(".answer").append(questions.answer);
-        $(".answer").show();
         choiceGenerator();
+        $("#timer").show();
     });
 
     function choiceGenerator() {
@@ -47,48 +46,45 @@ $(document).ready(function () {
             choicesArray.push(choice)
         }
         $('#questionWrapper').text(selectedQuestion.ask);
+        $('#choicesWrapper').empty();
         $('#choicesWrapper').append(choicesArray);
         questions.splice(questions.indexOf(selectedQuestion), 1);
         console.log(questions);
 
-    }
+        startTimer();
 
-    function reset() {
-        $('#choicesWrapper').empty();
-        $("#choicesWrapper").show();
-        $("#timer").show();
-        choiceGenerator();
-    };
+    }
 
     function startTimer() {
 
-        setInterval(function () {
-            $(".choice").on('click', function (e) {
-                console.log(e.target.innerText, selectedQuestion.answer);
-                if (selectedQuestion.answer == e.target.innerText) {
-                } else {
-                    $("#questionWrapper").text("You were wrong! The correct answer was " + selectedQuestion.answer);
-                    $("#choicesWrapper").hide();
-                    $("#timer").hide();
-                    var delay = setInterval(function () {
-                        reset();
-                        clearInterval(delay);
-                    }, 2000)
+        $(".choice").on('click', function (e) {
 
-                }
-            })
+            console.log(e.target.innerText, 'button')
+            clearInterval(mainTimer);
+            console.log(e.target.innerText, selectedQuestion.answer);
+            if (selectedQuestion.answer == e.target.innerText) {
+                
+            } else {
+                // $("#questionWrapper").text("You were wrong! The correct answer was " + selectedQuestion.answer);
+                // $("#choicesWrapper").hide();
+                // $("#timer").hide();
+                // var delay = setInterval(function () {
+
+                //     clearInterval(delay);
+                // }, 2000)
+                choiceGenerator();
+            }
+        })
+
+        var mainTimer = setInterval(function () {
             if (timer !== 0) {
                 timer--;
                 $("#timeRemains").text(timer);
             } else if (timer == 0) {
-                reset();
+
             }
         }, 1000)
 
     };
-
-
-
-    $("#start").on('click', startTimer)
 
 });
