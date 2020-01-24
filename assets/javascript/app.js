@@ -62,7 +62,7 @@ $(document).ready(function () {
         if (questions.length !== 0) {
             selectedQuestion = questions[Math.floor(Math.random() * questions.length)];
             var choicesArray = []
-            timer = 5;
+            timer = 30;
             $("#timeRemains").text(timer);
 
 

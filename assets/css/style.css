@@ -3,10 +3,44 @@ body {
     background-image: url(../images/Coffee-Background.jpg);
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     background-size: cover;
 }
 
 .card {
     background: gold;
+    height: 600px;
 }
 
+.btn {
+    margin-top: 175px;
+    padding: 5px 150px;
+    font-size: 35px;
+}
+
+.card-title {
+    font-size: 75px;
+    color: #2225FF;
+}
+
+#timer {
+    font-size: 35px;
+}
+
+#questionWrapper {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.choice {
+    border: 1px dashed grey;
+    background-color: gold;
+    padding: 10px 20px;
+    font-size: 35px;
+    display: block;
+    width: 100%;  
+}
+
+#choicesWrapper {
+    font-size: 35px;
+}
